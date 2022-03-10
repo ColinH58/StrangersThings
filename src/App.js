@@ -2,11 +2,10 @@ import React from "react";
 import { hot } from 'react-hot-loader/root';
 import PostList from "./PostList";
 
-const App = (props) => {
-  const { name } = props;
+const App = ({ name }) => {
+
   return (
     <>
-      <h1>Welcome TO CODING, {name}</h1>
       <PostList />
     </>
   );
