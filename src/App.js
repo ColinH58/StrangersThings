@@ -6,7 +6,7 @@ const App = (props) => {
   const { name } = props;
   return (
     <>
-      <h1>Welcome TO CODING, {name}</h1>
+      <h1>Welcome TO , {name}</h1>
       <PostList />
     </>
   );
