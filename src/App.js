@@ -11,6 +11,6 @@ const App = ({ name }) => {
       <PostList />
     </div>
   );
-}
+};
 
 export default hot(App);
