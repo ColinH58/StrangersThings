@@ -10,6 +10,7 @@ const App = () => {
     <div>
       <CreateAccount />
       <PostForm />
+
       <PostList />
     </div>
   );
