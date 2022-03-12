@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const LoginForm = () => {
+const CreateAccount = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,7 +32,7 @@ const LoginForm = () => {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        localStorage.setItem("token", result.data.token)
+        localStorage.setItem("token", result.data.token);
       })
       .catch(console.error);
     setUsername("");
@@ -59,4 +59,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default CreateAccount;

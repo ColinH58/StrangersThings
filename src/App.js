@@ -2,13 +2,13 @@ import React from "react";
 import { hot } from 'react-hot-loader/root';
 import PostList from "./PostList";
 import PostForm from "./PostForm";
-import LoginForm from "./LoginForm"
+import CreateAccount from "./CreateAccount"
 
-const App = ({ name }) => {
+const App = () => {
 
   return (
     <div>
-      <LoginForm />
+      <CreateAccount />
       <PostForm />
       <PostList />
     </div>
