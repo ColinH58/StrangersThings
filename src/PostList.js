@@ -6,13 +6,13 @@ const PostList = () => {
 
     useEffect(async () => {
         const posts = await getPosts();
-        setPosts(posts);
+        setPosts(posts.data.posts);
     }, []);
 
     return (
         <div>
             {posts.map(post =>
-                <div key={post.id}>
+                <div key={post.title}>
                     <h2>{post.title}</h2>
                     <p>{post.body}</p>
                 </div>
