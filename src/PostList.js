@@ -14,7 +14,11 @@ const PostList = () => {
             {posts.map(post =>
                 <div key={post.title}>
                     <h2>{post.title}</h2>
-                    <p>{post.body}</p>
+                    <h3>{post.author.username}</h3>
+                    <h3>{post.description}</h3>
+                    <h4>{post.price}</h4>
+                    <p>{post.location}</p>
+                    {post.willDeliver === false || null ? <p>{"Will NOT Deliver"}</p> : <p>{"Will Deliver"}</p>}
                 </div>
             )}
         </div>

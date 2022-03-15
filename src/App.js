@@ -9,8 +9,8 @@ const App = () => {
   return (
     <div>
       <CreateAccount />
-      <PostForm />
       <PostList />
+      <PostForm />
     </div>
   );
 };
