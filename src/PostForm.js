@@ -9,7 +9,7 @@ const PostForm = () => {
       const postInfo = {
         title: title,
         body: body
-    };
+      };
       createNewPost(postInfo)
       setTitle("")
       setBody("")

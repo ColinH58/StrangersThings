@@ -4,13 +4,14 @@ import PostList from "./PostList";
 import PostForm from "./PostForm";
 import CreateAccount from "./CreateAccount"
 import LoginAccount from "./LoginAccount";
+import LogoutAccount from "./LogoutAccount";
 
 const App = () => {
-
   return (
     <div>
       <CreateAccount />
       <LoginAccount />
+      <LogoutAccount />
       <PostList />
       <PostForm />
     </div>

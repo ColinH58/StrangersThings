@@ -14,22 +14,25 @@ export const createNewPost = async (newPost) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`,
     },
     body: JSON.stringify(newPost),
   });
 
   const json = await response.json();
+  console.log(json);
   return json;
 };
 
 export const updatePost = async (postToUpdate) => {
   const url =
     "https://strangers-things.herokuapp.com/api/2112-FTB-ET-WEB-PT/posts";
+  const token = localStorage.getItem("token");
   const response = await fetch(url, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
+      'Authorization': `Bearer ${token}`,
     },
     body: JSON.stringify(postToUpdate),
   });
@@ -73,7 +76,7 @@ export const accountCreation = async (username, password) => {
 };
 
 export const accountLogin = async (username, password) => {
-  fetch(
+  await fetch(
     "https://strangers-things.herokuapp.com/api/2112-FTB-ET-WEB-PT/users/login",
     {
       method: "POST",
@@ -90,6 +93,7 @@ export const accountLogin = async (username, password) => {
   )
     .then((response) => response.json())
     .then((result) => {
+      localStorage.getItem("token");
       console.log(result);
     })
     .catch(console.error);
