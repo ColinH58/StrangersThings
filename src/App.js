@@ -21,3 +21,15 @@ const App = () => {
 };
 
 export default hot(App);
+
+/* 
+Add the routes via react router, set up pages
+Correcting Route pages
+Figure out why login token isn't allowing post requests to go through
+Create a password confirmation function, and check for min lengths (also make it .Required)
+Add styles
+Add messages functionality
+Add comments functionality
+Add a search form and search functionality
+AND MORE...
+*/
