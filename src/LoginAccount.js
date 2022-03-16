@@ -19,7 +19,6 @@ const LoginAccount = () => {
     setUsername("");
     setPassword("");
   };
-
   return (
     <div>
       <h2>Login</h2>
