@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { accountCreation } from "./api";
+import { accountLogin } from "./api";
 
-const CreateAccount = () => {
+const LoginAccount = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,14 +15,14 @@ const CreateAccount = () => {
 
   const submitInformation = (e) => {
     e.preventDefault();
-    accountCreation(username, password);
+    accountLogin(username, password);
     setUsername("");
     setPassword("");
   };
 
   return (
     <div>
-      <h2>Create Account</h2>
+      <h2>Login</h2>
       <form onSubmit={submitInformation}>
         <input
           placeholder="Username"
@@ -41,4 +41,4 @@ const CreateAccount = () => {
   );
 };
 
-export default CreateAccount;
+export default LoginAccount;
