@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { accountCreation } from "./api";
 
-const CreateAccount = ({ isLoggedIn, setIsLoggedIn }) => {
+const CreateAccount = ({ setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,9 +13,16 @@ const CreateAccount = ({ isLoggedIn, setIsLoggedIn }) => {
     setPassword(e.target.value);
   };
 
-  const submitInformation = (e) => {
+  const submitInformation = async (e) => {
     e.preventDefault();
-    accountCreation(username, password);
+    await accountCreation(username, password);
+    const token = localStorage.getItem("token")
+    if (token) {
+      setIsLoggedIn(true)
+     } else {
+      setIsLoggedIn(false)
+       console.log("Invalid Login, Try Again")
+     }
     setUsername("");
     setPassword("");
   };

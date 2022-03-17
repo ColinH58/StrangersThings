@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { accountLogin } from "./api";
 
-const LoginAccount = ({ isLoggedIn, setIsLoggedIn }) => {
+const LoginAccount = ({ setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,12 +13,20 @@ const LoginAccount = ({ isLoggedIn, setIsLoggedIn }) => {
     setPassword(e.target.value);
   };
 
-  const submitInformation = (e) => {
+  const submitInformation = async (e) => {
     e.preventDefault();
-    accountLogin(username, password);
+    await accountLogin(username, password)
+    const token = localStorage.getItem("token")
+    if (token) {
+      setIsLoggedIn(true)
+     } else {
+      setIsLoggedIn(false)
+       console.log("Invalid Login, Try Again")
+     }
     setUsername("");
     setPassword("");
   };
+
   return (
     <div>
       <h2>Login</h2>

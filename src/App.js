@@ -15,7 +15,6 @@ const App = () => {
 
   async function isValidJWT() {
     const token = localStorage.getItem("token");
-    console.log("token")
     if (!token) {
       setIsLoggedIn(false);
     } else {
