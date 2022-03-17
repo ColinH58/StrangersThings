@@ -9,6 +9,7 @@ const LogoutAccount = () => {
 
   return (
     <div>
+      <h2>LOG OUT</h2>
       <button
         onClick={handleClick}
         styles={{ width: "200px", height: "100px" }}

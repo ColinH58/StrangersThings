@@ -7,6 +7,7 @@ export const getPosts = async () => {
 };
 
 export const createNewPost = async (newPost) => {
+  console.log(newPost)
   const url =
     "https://strangers-things.herokuapp.com/api/2112-FTB-ET-WEB-PT/posts";
   const token = localStorage.getItem("token");
@@ -14,11 +15,10 @@ export const createNewPost = async (newPost) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      'Authorization': `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`
     },
     body: JSON.stringify(newPost),
   });
-
   const json = await response.json();
   console.log(json);
   return json;
@@ -93,7 +93,7 @@ export const accountLogin = async (username, password) => {
   )
     .then((response) => response.json())
     .then((result) => {
-      localStorage.getItem("token");
+      localStorage.setItem("token", result.data.token);
       console.log(result);
     })
     .catch(console.error);
