@@ -98,3 +98,16 @@ export const accountLogin = async (username, password) => {
     })
     .catch(console.error);
 };
+
+export const testAuthentication = async () => {
+  const url = 'https://strangers-things.herokuapp.com/api/2112-FTB-ET-WEB-PT/test/me';
+  const token = localStorage.getItem('token')
+  const response = await fetch(url, {
+      method: "GET",
+      headers: {
+          'Authorization': `Bearer ${token}`
+      }
+  });
+  const json = await response.json();
+  return json.success;
+};

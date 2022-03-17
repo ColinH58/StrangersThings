@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { accountCreation } from "./api";
 
-const CreateAccount = () => {
+const CreateAccount = ({ isLoggedIn, setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 

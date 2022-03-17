@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import ReactDOM from "react-dom";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { hot } from "react-hot-loader/root";
@@ -7,14 +7,31 @@ import PostForm from "./PostForm";
 import CreateAccount from "./CreateAccount";
 import LoginAccount from "./LoginAccount";
 import LogoutAccount from "./LogoutAccount";
+import { testAuthentication } from "./api";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  async function isValidJWT() {
+    const token = localStorage.getItem("token");
+    console.log("token")
+    if (!token) {
+      setIsLoggedIn(false);
+    } else {
+      const isValid = await testAuthentication();
+      setIsLoggedIn(isValid);
+    }
+  }
+
+  useEffect(() => {
+    isValidJWT();
+  }, []);
 
   return (
     <div>
-      <CreateAccount />
-      <LoginAccount />
+      {isLoggedIn ? null : <CreateAccount isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
+      {isLoggedIn ? null : <LoginAccount isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
       <LogoutAccount />
       <PostList posts={posts} setPosts={setPosts}/>
       <PostForm posts={posts} setPosts={setPosts}/>
