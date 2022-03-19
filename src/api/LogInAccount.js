@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { accountCreation } from "./api";
+import { accountLogin } from "./api";
 
-const CreateAccount = ({ setIsLoggedIn }) => {
+const LoginAccount = ({ setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,7 +15,7 @@ const CreateAccount = ({ setIsLoggedIn }) => {
 
   const submitInformation = async (e) => {
     e.preventDefault();
-    await accountCreation(username, password);
+    await accountLogin(username, password)
     const token = localStorage.getItem("token")
     if (token) {
       setIsLoggedIn(true)
@@ -29,7 +29,7 @@ const CreateAccount = ({ setIsLoggedIn }) => {
 
   return (
     <div>
-      <h2>Create Account</h2>
+      <h2>Login</h2>
       <form onSubmit={submitInformation}>
         <input
           placeholder="Username"
@@ -48,4 +48,4 @@ const CreateAccount = ({ setIsLoggedIn }) => {
   );
 };
 
-export default CreateAccount;
+export default LoginAccount;
